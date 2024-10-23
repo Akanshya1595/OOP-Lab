@@ -1,0 +1,38 @@
+import java.util.*;
+class Counting{
+    public static void counting(String text){
+        int charNum=text.length();
+        int wordsNum=text.isEmpty()?0:text.trim().split("\\s+").length;
+        int lineNum=text.isEmpty()?0:text.split("\n").length;
+        int volNum=countVowels(text);
+        System.out.println("Char count:"+charNum);
+        System.out.println("Word count:"+wordsNum);
+        System.out.println("Line count:"+lineNum);
+        System.out.println("Vowel count:"+volNum);
+    }
+    private static int countVowels(String text) {
+        int count = 0;
+    String vowels = "aeiouAEIOU";
+    
+    for (char c : text.toCharArray()) {
+        if (vowels.indexOf(c) != -1) {
+            count++;
+        }
+    }
+    
+    return count;
+    
+}}
+class reading {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a String:");
+        String s=sc.nextLine();
+        while(!s.equalsIgnoreCase("n")){
+            Counting.counting(s);
+            System.out.println("Enter a String or n to exit:");
+            s=sc.nextLine();
+    }
+    }
+    
+}
