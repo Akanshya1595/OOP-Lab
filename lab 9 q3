@@ -1,0 +1,67 @@
+import java.util.*;
+class operations {
+    public static void Palin(String s){
+        String rev=new StringBuilder(s).reverse().toString();
+        if(s.equalsIgnoreCase(rev)){
+            System.out.println(s+" is a palindrome");
+        }
+        else{
+            System.out.println(s+" is not a palindrome");
+        }
+    }
+    public static void sorting(String str){
+        char[] charac=str.toCharArray();
+        Arrays.sort(charac);
+        System.out.println("String in alphabetical order"+new String(charac));
+    }
+    public static void reverseString(String str) {
+        String reversed = new StringBuilder(str).reverse().toString();
+        System.out.println("Reversed string: " + reversed);
+    }
+    public static void concat(String s){
+        String rev=new StringBuilder(s).reverse().toString();
+        String con=s+rev;
+        System.out.println("Concatenated string:"+con);
+    }
+}
+ class Main{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a string:");
+        String input=sc.nextLine();
+        int choice;
+        do{
+            System.out.println("\nMenu:");
+            System.out.println("1. Check if the string is a palindrome");
+            System.out.println("2. Sort the string in alphabetical order");
+            System.out.println("3. Reverse the string");
+            System.out.println("4. Concatenate original and reversed string");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice (1-5): ");
+            choice = sc.nextInt();
+            sc.nextLine(); 
+
+            switch (choice) {
+                case 1:
+                    operations.Palin(input);
+                    break;
+                case 2:
+                    operations.sorting(input);
+                    break;
+                case 3:
+                    operations.reverseString(input);
+                    break;
+                case 4:
+                    operations.concat(input);
+                    break;
+                case 5:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 5);
+
+        sc.close();
+    }
+}
