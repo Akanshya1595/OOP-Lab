@@ -1,0 +1,76 @@
+//lab 8 Q1
+interface Item {
+    double getSalesForLastThreeMonths();
+}
+ class Hardware implements Item {
+    private String category;
+    private String manufacturer;
+    private double[] salesLastThreeMonths;
+
+    public Hardware(String category, String manufacturer, double[] salesLastThreeMonths) {
+        this.category = category;
+        this.manufacturer = manufacturer;
+        this.salesLastThreeMonths = salesLastThreeMonths;
+    }
+
+    @Override
+    public double getSalesForLastThreeMonths() {
+        double totalSales = 0.0;
+        for (double sale : salesLastThreeMonths) {
+            totalSales += sale;
+        }
+        return totalSales;
+    }
+
+    @Override
+    public String toString() {
+        return "Hardware [category=" + category + ", manufacturer=" + manufacturer + "]";
+    }
+}
+ class Software implements Item {
+    private String type;
+    private String operatingSystem;
+    private double[] salesLastThreeMonths;
+
+    public Software(String type, String operatingSystem, double[] salesLastThreeMonths) {
+        this.type = type;
+        this.operatingSystem = operatingSystem;
+        this.salesLastThreeMonths = salesLastThreeMonths;
+    }
+
+    @Override
+    public double getSalesForLastThreeMonths() {
+        double totalSales = 0.0;
+        for (double sale : salesLastThreeMonths) {
+            totalSales += sale;
+        }
+        return totalSales;
+    }
+
+    @Override
+    public String toString() {
+        return "Software [type=" + type + ", operatingSystem=" + operatingSystem + "]";
+    }
+}
+ class Main {
+    public static void main(String[] args) {
+        // Create hardware item
+        double[] hardwareSales = {1000.0, 1500.0, 2000.0};
+        Item hardware = new Hardware("Laptop", "Dell", hardwareSales);
+
+        // Create software item
+        double[] softwareSales = {500.0, 700.0, 800.0};
+        Item software = new Software("Antivirus", "Windows", softwareSales);
+
+        // Calculate total sales using the method defined in the Item interface
+        double totalHardwareSales = hardware.getSalesForLastThreeMonths();
+        double totalSoftwareSales = software.getSalesForLastThreeMonths();
+
+        // Print results
+        System.out.println(hardware);
+        System.out.println("Total Hardware Sales for Last 3 Months: $" + totalHardwareSales);
+        
+        System.out.println(software);
+        System.out.println("Total Software Sales for Last 3 Months: $" + totalSoftwareSales);
+    }
+}
