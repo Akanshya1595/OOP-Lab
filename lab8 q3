@@ -1,0 +1,56 @@
+// lab8 q3
+public interface Shape {
+    // Method to calculate the area
+    double calculateArea();
+}
+class Rectangle implements Shape {
+    private double width;
+    private double height;
+
+    // Constructor
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public double calculateArea() {
+        return width * height;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Rectangle [width=%.2f, height=%.2f]", width, height);
+    }
+}
+class Circle implements Shape {
+    private double radius;
+
+    // Constructor
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Circle [radius=%.2f]", radius);
+    }
+}
+class lab8ques3 {
+    public static void main(String[] args) {
+        // Create a rectangle with width 5.0 and height 3.0
+        Shape rectangle = new Rectangle(5.0, 3.0);
+        System.out.printf("%s%n", rectangle); // Using toString() method for description
+        System.out.printf("Area of the rectangle: %.2f%n", rectangle.calculateArea());
+
+        // Create a circle with radius 4.0
+        Shape circle = new Circle(4.0);
+        System.out.printf("%s%n", circle); // Using toString() method for description
+        System.out.printf("Area of the circle: %.2f%n", circle.calculateArea());
+    }
+}
