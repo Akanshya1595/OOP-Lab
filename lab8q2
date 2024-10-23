@@ -1,0 +1,42 @@
+//lab8 q2
+ abstract class Shape {
+    public abstract double calculateArea();
+}
+ class Rectangle extends Shape{
+    private double width;
+    private double height;
+    public Rectangle(double width,double height){
+        this.width=width;
+        this.height=height;
+    }
+    public double calculateArea(){
+        return width*height;
+    }
+    public String toString(){
+        return String.format("Rectangle[width=%.2f,height=%.2f]",width,height); 
+    }
+}
+class Circle extends Shape{
+    private double radius;
+    public Circle(double radius){
+        this.radius=radius;
+    }
+    public double calculateArea(){
+        return Math.PI*radius*radius;
+    }
+    public String toString(){
+        return String.format("Circle[radius=%.2f]",radius);
+    }
+}
+
+public class lab8ques2{
+    public static void main(String[] args){
+        Shape rectangle=new Rectangle(6.0,4.0);
+        System.out.printf("Area of Rectangle:%.2f%n",rectangle.calculateArea());
+
+        Shape circle=new Circle(6.02);
+        System.out.println(circle);
+        System.out.printf("Area of circle:");
+        System.out.printf("Area of the circle: %.2f%n", circle.calculateArea());
+    }
+}
