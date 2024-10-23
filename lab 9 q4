@@ -1,0 +1,22 @@
+class ops {
+    public static void compare(String s1,String s2){
+        if(s1.equals(s2)){
+            System.out.println("The 2 strings are equal");
+        }
+        else{
+            System.out.println("The two strings are not equal");
+        }
+    }
+    public static void caseConvert(String s){
+        StringBuilder converted=new StringBuilder();
+        for(char c:s.toCharArray()){
+            if(Character.isUpperCase(c)){
+                converted.append(Character.toLowerCase(c));
+            }
+            else{
+                converted.append(Character.toUpperCase(c));
+            }
+        }
+        System.out.println("After conversion:"+converted.toString());
+    }
+}
