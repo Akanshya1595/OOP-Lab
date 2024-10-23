@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+ class Replace{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter a string:");
+        String originalString = sc.nextLine();
+
+        System.out.println("Enter the character to replace:");
+        char characterToReplace = sc.nextLine().charAt(0);
+
+        System.out.println("Enter the word to replace with:");
+        String wordToReplaceWith = sc.nextLine();
+        String modifiedString = originalString.replace(Character.toString(characterToReplace), wordToReplaceWith);
+
+        System.out.println("Modified String:");
+        System.out.println(modifiedString);
+    }
+}
